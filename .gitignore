@@ -33,3 +33,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 ######## END Terraform
+
+######## Ansible
+*.retry
+######## END Ansible
