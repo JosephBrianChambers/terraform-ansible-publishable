@@ -1,0 +1,21 @@
+---
+- name: Create deploy user
+  become: true
+  user:
+    name: deploy
+    state: present         # Defaults to present
+    shell: /bin/bash       # Defaults to /bin/bash
+    system: no             # Defaults to no
+    createhome: yes        # Defaults to yes
+    home: /home/deploy     # Defaults to /home/<username>
+
+- name: Sync_deploy_authorized_keys
+  become: true
+  authorized_key:
+    user: deploy
+    key: "{{ lookup('file', item) }}"
+    state: present
+    exclusive: True
+  with_fileglob:
+    - deploy_user_public_keys/*
+

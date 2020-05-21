@@ -3,4 +3,5 @@
   hosts: web
 
   roles:
+    - configure_deploy_user
     - nginx
