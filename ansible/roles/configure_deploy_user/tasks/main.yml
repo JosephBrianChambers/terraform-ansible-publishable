@@ -19,3 +19,9 @@
   with_fileglob:
     - deploy_user_public_keys/*
 
+- name: Add folder for web app
+  become: yes
+  file:
+    path: /home/deploy/project
+    state: directory
+    owner: deploy

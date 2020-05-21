@@ -17,7 +17,7 @@
 - name: copy the nginx config file and restart nginx
   become: yes
   template:
-    src: terraform.cfg
+    src: terraform.cfg.j2
     dest: /etc/nginx/sites-available/terraform.cfg
 
 - name: create symlink
