@@ -1,0 +1,37 @@
+:root {
+  --box-width: 20px;
+  --box-height: 12px;
+  --box-radius: 3px;
+}
+
+#budda-board {
+  width: 100%;
+}
+
+.row {
+  list-style: none;
+  height: calc(var(--box-height) + 1px);
+  overflow: hidden;
+}
+
+.box {
+  border-radius: var(--box-radius);
+  display: inline-block;
+  height: var(--box-height);
+  margin: 1px;
+  vertical-align: top;
+  width: var(--box-width);
+}
+
+.row:nth-child(even) > .box:first-child {
+  width: calc(var(--box-width) / 2);
+  border-left: none;
+  border-radius: 0px var(--box-radius) var(--box-radius) 0px;
+}
+
+.row:nth-child(odd) > .box:last-child {
+  width: calc(var(--box-width) / 2);
+  border-right: none;
+  border-radius: var(--box-radius) 0px 0px var(--box-radius);
+}
+
